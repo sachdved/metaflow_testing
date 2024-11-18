@@ -1,0 +1,44 @@
+[data]
+    train_path = "./data/mnist_csv/archive/mnist_train.csv"
+    test_path = "./data/mnist_csv/archive/mnist_test.csv"
+
+[dataloaders]
+    batch_size = 32
+
+[model]
+    [model.layers.layer_1]
+        type = "Linear"
+        in_features = 784
+        out_features = 128
+
+    [model.layers.activation_1]
+        type = "ReLU"
+
+    [model.layers.layer_2]
+        type = "Linear"
+        in_features = 128
+        out_features = 64
+        
+    [model.layers.activation_2]
+        type = "ReLU"
+
+    [model.layers.layer_3]
+        type = "Linear"
+        in_features = 64
+        out_features = 32
+
+    [model.layers.activation_3]
+        type = "ReLU"
+
+    [model.layers.layer_4]
+        type = "Linear"
+        in_features = 32
+        out_features = 10
+
+    [model.layers.activation_4]
+        type = "SoftMax"
+        dim = -1
+
+    [model.optimizer]
+        type = "SGD"
+        lr = 0.001
